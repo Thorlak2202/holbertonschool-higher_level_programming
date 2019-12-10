@@ -4,11 +4,10 @@
 #include "lists.h"
 
 /**
-* insert_nodeint_at_index - interts a new node at given index position
+* insert_node - interts a new node
 *
 * @head: pointer to the start of the list.
-* @idx: index position to add new node.
-* @n: data.
+* @number: data.
 *
 * Return: returns the address of the new node.
 */
