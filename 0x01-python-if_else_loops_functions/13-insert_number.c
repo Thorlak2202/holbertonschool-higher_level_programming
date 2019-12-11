@@ -24,7 +24,7 @@ if (new_node == NULL)
 
 	new_node->n = number;
 	new_node->next = NULL;
-if (head == NULL || temp->n > new_node->n)
+if (*head == NULL || temp->n > new_node->n)
 {
 	new_node->next = *head;
 	*head = new_node;
