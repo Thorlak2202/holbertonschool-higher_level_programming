@@ -1,6 +1,6 @@
 #!/usr/bin/python3
+from add_0 import add as suma
 if __name__ == "__main__":
-    import add_0
-a = 1
-b = 2
-print("{:d} + {:d} = {:d}".format(a, b, add_0.add(a, b)))
+    a = 1
+    b = 2
+print("{:d} + {:d} = {:d}".format(a, b, suma(a, b)))
