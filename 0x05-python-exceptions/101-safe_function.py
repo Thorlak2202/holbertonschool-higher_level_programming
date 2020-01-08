@@ -11,7 +11,7 @@ def safe_function(fct, *args):
         return(None)
     except TypeError as error:
         print("Exception: {}".format(error), file=sys.stderr)
-        return(False)
+        return(None)
     except ZeroDivisionError as error:
         print("Exception: {}".format(error), file=sys.stderr)
         return(0)
