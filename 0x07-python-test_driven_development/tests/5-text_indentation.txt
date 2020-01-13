@@ -1,0 +1,47 @@
+===================
+5. Text indentation
+===================
+
+import module:
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+>>> text_indentation(6)
+Traceback (most recent call last):
+TypeError: text must be a string
+
+text_indentation("   ?:.   ")
+?
+<BLANKLINE>
+:
+<BLANKLINE>
+.
+<BLANKLINE>
+
+>>> text_indentation("  .??:?.  ")
+.
+<BLANKLINE>
+?
+<BLANKLINE>
+?
+<BLANKLINE>
+:
+<BLANKLINE>
+?
+<BLANKLINE>
+.
+<BLANKLINE>
+
+>>> text_indentation("Plus semper voluptatis?     Teneo, inquit, finem illi videri nihil dolere.")
+Plus semper voluptatis?
+<BLANKLINE>
+Teneo, inquit, finem illi videri nihil dolere.
+<BLANKLINE>
+
+=============
+Section types
+=============
+	>>> text_indentation("Hola")
+	Hola>>>
+	>>> text_indentation(5)
+	Traceback (most recent call last):
+	TypeError: text must be a string
