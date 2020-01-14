@@ -29,7 +29,7 @@ of integers/floats")
 of integers/floats")
             elif len(matrix[0]) != len(matrix[i]):
                 raise TypeError("Each row of the matrix must have \
-                    the same size")
+the same size")
             elif type(div) != int and type(div) != float:
                 raise TypeError("div must be a number")
             elif div is 0:
