@@ -1,0 +1,59 @@
+====================
+0. 1-my_list
+====================
+
+Import module:
+    >>> MyList = __import__('1-my_list').MyList
+
+Function:
+=======.
+Write a class MyList that inherits from list:
+
+    Public instance method: def print_sorted(self): that prints the list, but sorted (ascending sort)
+    You can assume that all the elements of the list will be of type int
+    You are not allowed to import any module
+
+=========
+	
+	    >>> l1 = MyList()
+	    >>> type(l1)
+	    <class '1-my_list.MyList'>
+	
+	    >>> print(l1)
+	    []
+
+	    >>> issubclass(MyList, list)
+	    True
+		
+	    >>> 'print_sorted' in dir(MyList)
+	    True
+	
+	    >>> l2 = [9, 5, 0, 1, 6]
+	    >>> l2.print_sorted()
+	    Traceback (most recent call last):
+	    AttributeError: 'list' object has no attribute 'print_sorted'
+	
+	    >>> l1.print_sorted()
+	    []
+	
+	    >>> l3 = MyList(l2)
+	    >>> print(l3)
+	    [9, 5, 0, 1, 6]
+	
+	    >>> l3.print_sorted()
+	    [0, 1, 5, 6, 9]
+	
+	    >>> print(l3)
+	    [9, 5, 0, 1, 6]
+	
+	negative testing
+	
+	    >>> l4 = MyList([-99, -1023, 0, -4, 1])
+	    >>> l4
+	    [-99, -1023, 0, -4, 1]
+	
+	    >>> l4.print_sorted()
+	    [-1023, -99, -4, 0, 1]
+	
+	    >>> l4
+	    [-99, -1023, 0, -4, 1]
