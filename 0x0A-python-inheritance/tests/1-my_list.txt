@@ -22,9 +22,12 @@ Write a class MyList that inherits from list:
 	    >>> print(l1)
 	    []
 
-	    >>> issubclass(MyList, list)
-	    True
-		
+	    >>> isinstance(MyList, list)
+	    False
+
+		>>> issubclass(MyList, list)
+		True
+
 	    >>> 'print_sorted' in dir(MyList)
 	    True
 	
