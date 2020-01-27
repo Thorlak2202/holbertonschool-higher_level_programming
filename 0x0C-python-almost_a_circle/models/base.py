@@ -1,11 +1,16 @@
 #!/usr/bin/python3
+"""
+Base class module
+"""
 import json
 
 
 class Base:
+    """a class"""
     __nb_objects = 0
 
     def __init__(self, id=None):
+        """class constructor"""
         if id is not None:
             self.id = id
         else:
@@ -14,6 +19,7 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
+        """Returns a JSON String representation"""
         if list_dictionaries is None or len(list_dictionaries) == 0:
             return "[]"
         else:
@@ -21,6 +27,7 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
+        """Returns the JSON string representation list"""
         if json_string is None or json_string is "":
             return []
         else:
@@ -28,6 +35,7 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
+        """writes the list to a file"""
         filename = (cls.__name__) + ".json"
         obj_list = []
         if list_objs is None or len(list_objs) == 0:
@@ -41,12 +49,14 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
+        """returns an instance"""
         dummy = cls(1, 1)
         dummy.update(**dictionary)
         return dummy
 
     @classmethod
     def load_from_file(cls):
+        """loads a file"""
         filename = cls.__name__ + ".json"
         data = []
         try:
