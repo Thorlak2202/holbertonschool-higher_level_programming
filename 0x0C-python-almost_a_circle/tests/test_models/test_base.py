@@ -40,7 +40,6 @@ class TestBaseClassCreation(unittest.TestCase):
         bo = Base(None)
         self.assertEqual(bo.id, 'dog')
 
-
     def test_id_none(self):
         bo = Base()
         self.assertEqual(bo.id, 1)
@@ -48,10 +47,6 @@ class TestBaseClassCreation(unittest.TestCase):
         self.assertEqual(bo.id, 2)
 
 """ test Task 17 """
-
-import unittest
-import json
-from models.base import Base
 
 
 class TestBase(unittest.TestCase):
@@ -63,7 +58,5 @@ class TestBase(unittest.TestCase):
         self.assertTrue(type(jsonconv) is list)
         self.assertEqual(len(jsonconv), 2)
 
-
-
 if __name__ == "_main_":
-       unittest.main()
+    unittest.main()
