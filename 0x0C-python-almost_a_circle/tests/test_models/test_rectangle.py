@@ -114,5 +114,15 @@ def test_string(self):
             H1 = Rectangle(5, 9, 5, -4798576398576)
             raise ValueError()
 
+"""Test 13"""
+
+
+def test_to_dict(self):
+        """ """
+        r = Rectangle(10, 2, 1, 9)
+        self.assertIs(type(r.to_dictionary()), dict)
+        self.assertEqual(r.to_dictionary(), {'x': 1, 'y': 9,
+                                             'id': 1, 'height': 2,
+                                             'width': 10})
 if __name__ == "_main_":
     unittest.main()
