@@ -1,9 +1,12 @@
 #!/usr/bin/python3
-"""recangle mode"""
+"""
+recangle class
+"""
 from models.base import Base
 
 
 class Rectangle(Base):
+    """Rectangle"""
     def __init__(self, width, height, x=0, y=0, id=None):
         """Class constructor"""
         super().__init__(id)
@@ -31,12 +34,13 @@ class Rectangle(Base):
             print("")
 
     def __str__(self):
+        """overrides the str and represents the rectangle"""
         return \
             ("[{}] ({}) {}/{} - {}/{}".format(__class__.__name__,
              self.id, self.x, self.y, self.width, self.height))
 
     def update(self, *args, **kwargs):
-        """updates the info of the rectangle based on the args"""
+        """updates attributes of the rectangle based on the args"""
         if len(args) > 0:
             for i in range(len(args)):
                 if i == 0:
