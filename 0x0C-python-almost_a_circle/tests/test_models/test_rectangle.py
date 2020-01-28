@@ -16,8 +16,9 @@ class Testrectangle(unittest.TestCase):
         self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warnings).")
 
+
     def test_subclass(self):
-        self.assertTrue(issubclass(Rectangle, Base))
+        self.assertTrue( issubclass(Rectangle, Base))
 
     def test_parameters(self):
         """ """
@@ -47,8 +48,6 @@ class Testrectangle(unittest.TestCase):
                 r4 = Rectangle()
 
 """Task 3 """
-
-
 def test_string(self):
     with self.assertRaises(TypeError):
         R1 = Rectangle(1.01, 3)
@@ -114,6 +113,94 @@ def test_string(self):
             H1 = Rectangle(5, 9, 5, -4798576398576)
             raise ValueError()
 
+    def test_str(self):
+        """Task #6"""
+        string = "[Rectangle] (1) 0/0 - 1/1"
+        temp_stdout = StringIO()
+        with contextlib.redirect_stdout(temp_stdout):
+            R1 = Rectangle(1, 1, )
+        print(R1)
+        output = temp_stdout.getvalue().strip()
+        self.assertEqual(output, string)
+        Base._Base_nb__objects = 0
+        string = "[Rectangle] (12) 2/1 - 4/6"
+        temp_stdout = StringIO()
+        with contextlib.redirect_stdout(temp_stdout):
+            R1 = Rectangle(4, 6, 2, 1, 12)
+        print(R1)
+        output = temp_stdout.getvalue().strip()
+        self.assertEqual(output, string)
+        Base._Base_nb__objects = 0
+        string = "[Rectangle] (1) 1/0 - 5/5"
+        temp_stdout = StringIO()
+        with contextlib.redirect_stdout(temp_stdout):
+            R2 = Rectangle(5, 5, 1)
+        print(R2)
+        output = temp_stdout.getvalue().strip()
+        self.assertEqual(output, string)
+
+    """TASK 8"""
+    def test_rectangle_update(self):
+        """
+        Test a rectangle with *args
+        """
+        instance_rectangle = Rectangle(1, 1, 1, 1)
+        self.assertEqual(instance_rectangle.__str__(), "[Rectangle] (1) 1/1 - 1/1")
+        instance_rectangle.update(3)
+        self.assertEqual(instance_rectangle.id, 3)
+        self.assertEqual(instance_rectangle.__str__(), "[Rectangle] (3) 1/1 - 1/1")
+        instance_rectangle.update(width=7)
+        self.assertEqual(instance_rectangle.width, 7)
+        self.assertEqual(instance_rectangle.__str__(), "[Rectangle] (3) 1/1 - 7/1")
+        instance_rectangle.update(height=6)
+        self.assertEqual(instance_rectangle.height, 6)
+        self.assertEqual(instance_rectangle.__str__(), "[Rectangle] (3) 1/1 - 7/6")
+        instance_rectangle.update(x=2)
+        self.assertEqual(instance_rectangle.x, 2)
+        self.assertEqual(instance_rectangle.__str__(), "[Rectangle] (3) 2/1 - 7/6")
+        instance_rectangle.update(y=3)
+        self.assertEqual(instance_rectangle.y, 3)
+        self.assertEqual(instance_rectangle.__str__(), "[Rectangle] (3) 2/3 - 7/6")
+        instance_rectangle_1 = Rectangle(5, 5, 5, 5)
+        self.assertEqual(instance_rectangle_1.__str__(), "[Rectangle] (2) 5/5 - 5/5")
+        instance_rectangle_1.update(*[10])
+        self.assertEqual(instance_rectangle_1.id, 10)
+        self.assertEqual(instance_rectangle_1.__str__(), "[Rectangle] (10) 5/5 - 5/5")
+        instance_rectangle_1.update(*[10, 9])
+        self.assertEqual(instance_rectangle_1.width, 9)
+        self.assertEqual(instance_rectangle_1.__str__(), "[Rectangle] (10) 5/5 - 9/5")
+        instance_rectangle_1.update(*[10, 9, 8])
+        self.assertEqual(instance_rectangle_1.height, 8)
+        self.assertEqual(instance_rectangle_1.__str__(), "[Rectangle] (10) 5/5 - 9/8")
+        instance_rectangle_1.update(*[10, 9, 8, 7])
+        self.assertEqual(instance_rectangle_1.x, 7)
+        self.assertEqual(instance_rectangle_1.__str__(), "[Rectangle] (10) 7/5 - 9/8")
+        instance_rectangle_1.update(*[10, 9, 8, 7, 6])
+        self.assertEqual(instance_rectangle_1.y, 6)
+        self.assertEqual(instance_rectangle_1.__str__(), "[Rectangle] (10) 7/6 - 9/8")
+
+
+    """TASK 9"""
+    def test_update_kwargs(self):
+        """
+        Test a rectangle with **kwargs
+        """
+        instance_rectangle = Rectangle(1, 1, 1, 1)
+        self.assertEqual(instance_rectangle.__str__(), "[Rectangle] (1) 1/1 - 1/1")
+        instance_rectangle.update(**{'height': 10})
+        self.assertEqual(instance_rectangle.__str__(), "[Rectangle] (1) 1/1 - 1/10")
+        instance_rectangle.update(**{'width': 9, 'x': 8})
+        self.assertEqual(instance_rectangle.__str__(), "[Rectangle] (1) 8/1 - 9/10")
+        instance_rectangle.update(**{'y': 1, 'width': 2, 'x': 3, 'id': 89})
+        self.assertEqual(instance_rectangle.__str__(), "[Rectangle] (89) 3/1 - 2/10")
+        instance_rectangle.update(**{'x': 1, 'height': 2, 'y': 3, 'width': 4})
+        self.assertEqual(instance_rectangle.__str__(), "[Rectangle] (89) 1/3 - 4/2")
+        instance_rectangle.update(**{'wow': 3, 'hey': 'wow'})
+        self.assertEqual(instance_rectangle.__str__(), "[Rectangle] (89) 1/3 - 4/2")
+        instance_rectangle.update({'x': 10, 'height': 8})
+        self.assertIs(type(instance_rectangle.id), dict)
+
+
 """Test 13"""
 
 
@@ -124,5 +211,6 @@ def test_to_dict(self):
         self.assertEqual(r.to_dictionary(), {'x': 1, 'y': 9,
                                              'id': 1, 'height': 2,
                                              'width': 10})
+
 if __name__ == "_main_":
     unittest.main()
