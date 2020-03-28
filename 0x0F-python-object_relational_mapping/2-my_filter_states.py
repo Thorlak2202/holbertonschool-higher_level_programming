@@ -7,7 +7,8 @@ if __name__ == "__main__":
                              user=argv[1], passwd=argv[2], db=argv[3])
 
     cur = tables.cursor()
-    cur.execute("SELECT * from states WHERE name='{:s}' ORDER BY id ASC".format(argv[4]))
+    cur.execute("SELECT * from states WHERE name='{:s}'
+                ORDER BY id ASC".format(argv[4]))
     for row in cur:
         print("{}".format(row))
     cur.close()
