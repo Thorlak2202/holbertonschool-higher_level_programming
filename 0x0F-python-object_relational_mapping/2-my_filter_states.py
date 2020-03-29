@@ -9,7 +9,7 @@ if __name__ == "__main__":
     cur = tables.cursor()
     cur.execute("SELECT * from states WHERE name='{:s}'\
                 ORDER BY id ASC".format(argv[4]))
-    for row in cur:
-        print("{}".format(row))
+    for a in cur:
+        print("{}".format(a))
     cur.close()
     tables.close()
