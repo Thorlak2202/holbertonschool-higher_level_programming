@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 """
-Python script that takes in a URL, sends a
-request to the URL and displays the body
-of the response
+Python script that takes your Github
+credentials (username and password)
+and uses the Github API to display
+your id
 """
 import requests
 import sys
