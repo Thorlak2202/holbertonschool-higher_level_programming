@@ -8,6 +8,9 @@ if (size < 4) {
   for (i; i < size; i++) {
     items.push(parseInt(process.argv[i]));
   }
-  const rev = items.reverse();
+  const sorted = items.sort(function (a, b) {
+    return a - b;
+  });
+  const rev = sorted.reverse();
   console.log(rev[1]);
 }
