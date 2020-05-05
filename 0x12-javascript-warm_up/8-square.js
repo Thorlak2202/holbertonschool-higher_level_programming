@@ -5,5 +5,5 @@ if (isNaN(number) === true) {
 }
 let x = 0;
 for (x; x < number; x++) {
-  console.log('x'.repeat(number));
+  console.log('X'.repeat(number));
 }
