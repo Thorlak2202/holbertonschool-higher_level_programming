@@ -6,6 +6,6 @@ require('request').get(url + process.argv[2], function (error, response, body) {
   } else if (response.statusCode === 200) {
     console.log(JSON.parse(body).title);
   } else {
-    console.log('error: ' + response.statusCode);
+    console.log(JSON.parse(body).detail);
   }
 });
